@@ -10,6 +10,10 @@
 
 function advice($origin,$destination,$route)
 {
+    if($origin==$destination)
+    {
+        return "--";
+    }
     $CI=get_instance();
     $CI->load->model('stop_model');
     $CI->load->model('route_model');
@@ -28,4 +32,36 @@ function advice($origin,$destination,$route)
     {
        return false;
     }
+}
+
+
+function route_intersection($route1_id,$route2_id)
+{
+    $CI=get_instance();
+    $CI->load->model('route_model');
+    $route1_stops=$CI->route_model->get_route_stops($route1_id);
+    $route2_stops=$CI->route_model->get_route_stops($route2_id);
+    if($route1_stops && $route2_stops)//query is a success
+    {
+        $intersect=array_intersect($route1_stops,$route2_stops);
+        if($intersect)//intersection exists
+        {
+            return $intersect;
+        }
+        else//no intersect exists
+        {
+            return false;
+        }
+    }
+    else//query unsuccessful return false
+    {
+        return false;
+    }
+}
+
+function get_route_town_terminus($route_id)
+{
+    $CI=get_instance();
+    $CI->load->model('route_model');
+    return $CI->route_model->route_town_terminus($route_id);
 }
