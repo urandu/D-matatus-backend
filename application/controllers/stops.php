@@ -8,8 +8,10 @@ class Stops extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
 
-    public function get_trip($origin,$destination)
+    public function get_trip($origin_lat,$origin_lon,$destination_lat,$destination_lon)
     {
+        $origin;
+        $destination;
         $this->load->model('route_model');
         $origin_route=$this->route_model->get_route($origin);
         //print_r($origin_route);
