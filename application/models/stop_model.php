@@ -56,7 +56,7 @@ class Stop_model extends CI_Model
         $query="SELECT stop_name,stop_id,stop_lat, stop_lon, SQRT(
     POW(69.1 * (stop_lat - $stop_lat), 2) +
     POW(69.1 * ($stop_lon - stop_lon) * COS(stop_lat / 57.3), 2)) AS distance
-FROM stops HAVING distance < 25
+FROM stops HAVING distance < 50
 ORDER BY `distance`  ASC LIMIT 5";
 
         $result=$this->db->query($query);
