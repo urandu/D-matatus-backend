@@ -24,8 +24,8 @@ function advice($origin,$destination,$route)
     {
         $result="Board Matatu Number: "
             .$route_details->route_short_name.
-            " - ".$route_details->route_long_name.
-            " At ".$origin_details->stop_name.
+            " (".$route_details->route_long_name.
+            ") At ".$origin_details->stop_name.
             " And alight at ".$destination_details->stop_name.".  ";
         return $result;
     }else
