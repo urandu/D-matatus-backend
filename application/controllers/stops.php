@@ -100,7 +100,7 @@ class Stops extends CI_Controller {
                             $destination_route_town_terminal = get_route_town_terminus($destination_route);
 
 
-
+ ///////
                             /*echo("<br>origin stop: ".$origin);
                              echo("<br>destination stop: ".$destination);
                              echo("<br>origin route: ".$origin_route);
