@@ -97,10 +97,33 @@ class Stops extends CI_Controller {
 
                             $origin;
                             $destination;
+                            $hav_distance=100;
+                            $origin_route_choice=$origin_route;
+                            $destination_route_choice=$destination_route;
+                            $this->load->model('stop_model');
+                            foreach($origin_routes as $route)
+                            {
+                                $stop1=get_route_town_terminus($route);
+                                foreach($destination_routes as $route2)
+                                {
 
 
-                            $origin_route = $origin_route;
-                            $destination_route = $destination_route;
+                                    $stop1=$this->stop_model->get_stop_coordinates($stop1);
+                                    $stop2=get_route_town_terminus($route2);
+                                    $stop2=$this->stop_model->get_stop_coordinates($stop2);
+                                    $dist=distance($stop1->lat,$stop1->lon,$stop2->lat,$stop2->lon);
+                                    if($dist<$hav_distance)
+                                    {
+                                        $hav_distance=$dist;
+                                        $origin_route_choice=$route;
+                                        $destination_route_choice=$route2;
+                                    }
+                                }
+                            }
+
+
+                            $origin_route = $origin_route_choice;
+                            $destination_route = $destination_route_choice;
                             $origin_route_town_terminal = get_route_town_terminus($origin_route);
                             $destination_route_town_terminal = get_route_town_terminus($destination_route);
 
