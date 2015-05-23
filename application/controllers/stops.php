@@ -104,6 +104,7 @@ class Stops extends CI_Controller {
                             foreach($origin_routes as $route)
                             {
                                 $stop1=get_route_town_terminus($route);
+                                print_r($stop1);
                                 foreach($destination_routes as $route2)
                                 {
 
