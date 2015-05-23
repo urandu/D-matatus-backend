@@ -104,7 +104,7 @@ class Stops extends CI_Controller {
                             foreach($origin_routes as $route)
                             {
                                 $stop1=get_route_town_terminus($route);
-                                print_r($stop1);
+
                                 foreach($destination_routes as $route2)
                                 {
 
@@ -122,8 +122,10 @@ class Stops extends CI_Controller {
                                     echo("getting distance");
                                     echo("lat1:".$lat1."lon1:".$lon1."lat2:".$lat2."lon2:".$lon2);
                                     $dist=distance($lat1,$lon1,$lat2,$lon2);
+                                    echo("     ".$dist);
                                     if($dist<$hav_distance)
                                     {
+                                        echo("<br> yeeeee<br>");
                                         $hav_distance=$dist;
                                         $origin_route_choice=$route;
                                         $destination_route_choice=$route2;
