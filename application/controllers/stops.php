@@ -68,8 +68,8 @@ class Stops extends CI_Controller {
                         $destination;
                         $origin_routes=$origin_route;
                         $destination_routes=$destination_route;
-                        print_r($origin_routes);
-                        print_r($destination_routes);
+                       // print_r($origin_routes);
+                        //print_r($destination_routes);
 
                         $origin_route = $origin_route[0];
                         $destination_route = $destination_route[0];
@@ -113,7 +113,7 @@ class Stops extends CI_Controller {
                                     $stop2=$this->stop_model->get_stop_coordinates($stop2);
                                     print_r($stop1);
                                     print_r($stop2);
-                                    $dist=distance($stop1[1],$stop1[2],$stop2->lat,$stop2->lon);
+                                    $dist=distance($stop1['lat'],$stop1['lon'],$stop2['lat'],$stop2['lon']);
                                     if($dist<$hav_distance)
                                     {
                                         $hav_distance=$dist;
