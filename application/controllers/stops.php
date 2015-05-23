@@ -66,6 +66,11 @@ class Stops extends CI_Controller {
                         //echo("<br>not on the same route...");
                         $origin;
                         $destination;
+                        $origin_routes=$origin_route;
+                        $destination_routes=$destination_route;
+                        print_r($origin_routes);
+                        print_r($destination_routes);
+
                         $origin_route = $origin_route[0];
                         $destination_route = $destination_route[0];
 
