@@ -119,6 +119,7 @@ class Stops extends CI_Controller {
                                     $lat2=$stop2['lat'];
                                     $lon2=$stop2['lon'];
                                     echo("getting distance");
+                                    echo("lat1:".$lat1."lon1:".$lon1."lat2:".$lat2."lon2:".$lon2);
                                     $dist=distance($lat1,$lon1,$lat2,$lon2);
                                     if($dist<$hav_distance)
                                     {
@@ -129,6 +130,7 @@ class Stops extends CI_Controller {
                                 }
                             }
 
+                            echo("got distance");
 
                             $origin_route = $origin_route_choice;
                             $destination_route = $destination_route_choice;
