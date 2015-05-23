@@ -111,7 +111,9 @@ class Stops extends CI_Controller {
                                     $stop1=$this->stop_model->get_stop_coordinates($stop1);
                                     $stop2=get_route_town_terminus($route2);
                                     $stop2=$this->stop_model->get_stop_coordinates($stop2);
-                                    $dist=distance($stop1->lat,$stop1->lon,$stop2->lat,$stop2->lon);
+                                    print_r($stop1);
+                                    print_r($stop2);
+                                    $dist=distance($stop1[1],$stop1[2],$stop2->lat,$stop2->lon);
                                     if($dist<$hav_distance)
                                     {
                                         $hav_distance=$dist;
