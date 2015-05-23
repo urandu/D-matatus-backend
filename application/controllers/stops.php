@@ -109,6 +109,7 @@ class Stops extends CI_Controller {
                                 {
 
 
+                                    echo("<br> route2 : ".$route2."<br>");
                                     $stop1=$this->stop_model->get_stop_coordinates($stop1);
                                     $stop2=get_route_town_terminus($route2);
                                     $stop2=$this->stop_model->get_stop_coordinates($stop2);
@@ -131,6 +132,7 @@ class Stops extends CI_Controller {
                                         $destination_route_choice=$route2;
                                     }
                                 }
+                                echo("ouuuut");
                             }
 
                             echo("got distance");
