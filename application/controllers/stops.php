@@ -110,33 +110,33 @@ class Stops extends CI_Controller {
                                 {
 
 
-                                    echo("<br> route2 : ".$route2."<br>");
+                                    //echo("<br> route2 : ".$route2."<br>");
 
                                     $stop2=get_route_town_terminus($route2);
                                     $stop2=$this->stop_model->get_stop_coordinates($stop2);
-                                    print_r($stop1);
-                                    echo($stop1['lat']);
-                                    print_r($stop2);
+                                    //print_r($stop1);
+                                    //echo($stop1['lat']);
+                                    //print_r($stop2);
                                     $lat1=$stop1['lat'];
                                     $lon1=$stop1['lon'];
                                     $lat2=$stop2['lat'];
                                     $lon2=$stop2['lon'];
-                                    echo("getting distance");
-                                    echo("lat1:".$lat1."lon1:".$lon1."lat2:".$lat2."lon2:".$lon2);
+                                    //echo("getting distance");
+                                    //echo("lat1:".$lat1."lon1:".$lon1."lat2:".$lat2."lon2:".$lon2);
                                     $dist=distance($lat1,$lon1,$lat2,$lon2);
-                                    echo("     ".$dist);
+                                  //  echo("     ".$dist);
                                     if($dist<$hav_distance)
                                     {
-                                        echo("<br> yeeeee<br>");
+                                //        echo("<br> yeeeee<br>");
                                         $hav_distance=$dist;
                                         $origin_route_choice=$route;
                                         $destination_route_choice=$route2;
                                     }
                                 }
-                                echo("ouuuut");
+                              //  echo("ouuuut");
                             }
 
-                            echo("got distance");
+                            //echo("got distance");
 
                             $origin_route = $origin_route_choice;
                             $destination_route = $destination_route_choice;
