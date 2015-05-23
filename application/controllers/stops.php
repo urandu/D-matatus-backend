@@ -105,12 +105,13 @@ class Stops extends CI_Controller {
                             {
                                 $stop1=get_route_town_terminus($route);
 
+                                $stop1=$this->stop_model->get_stop_coordinates($stop1);
                                 foreach($destination_routes as $route2)
                                 {
 
 
                                     echo("<br> route2 : ".$route2."<br>");
-                                    $stop1=$this->stop_model->get_stop_coordinates($stop1);
+
                                     $stop2=get_route_town_terminus($route2);
                                     $stop2=$this->stop_model->get_stop_coordinates($stop2);
                                     print_r($stop1);
